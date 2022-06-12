@@ -1,5 +1,9 @@
-const btn = document.querySelector('.talk');
+const btn = document.querySelector('.input');
 const content = document.querySelector('.content');
+
+const banner = prompt(`ismingizni kiriting`)
+
+console.log(banner);
 
 function speak(sentence) {
     const text_speak = new SpeechSynthesisUtterance(sentence);
@@ -15,25 +19,25 @@ function wishMe() {
     var hr = day.getHours();
 
     if(hr >= 0 && hr < 12) {
-        speak("Good Morning Xurshid");
+        speak(`Good Morning ${banner}`);
     }
 
     else if(hr == 12) {
-        speak("Good noon Xurshid");
+        speak(`Good noon ${banner}`);
     }
 
     else if(hr > 12 && hr <= 17) {
-        speak("Good Afternoon Xurshid");
+        speak(`Good Afternoon ${banner}`);
     }
 
     else {
-        speak("Good Evening Xurshid");
+        speak(`Good Evening ${banner}`);
     }
 }
 
 window.addEventListener('load', ()=>{
-    speak("Activating Wora");
-    speak("Going online");
+    speak(`Activating Wora`);
+    speak(`Going online`);
     wishMe();
 })
 
@@ -54,98 +58,116 @@ btn.addEventListener('click', ()=>{
 function speakThis(message) {
     const speech = new SpeechSynthesisUtterance();
 
-    speech.text = "I did not understand what you said please try again";
+    speech.text = `I did not understand what you said please try again`;
 
-    if(message.includes('hey') || message.includes('hello')) {
-        const finalText = "Hello Xurshid";
+    if(message.includes('hey') || message.includes('hello') || message.includes('hey wora')) {
+        const finalText = `Hello ${banner}`;
         speech.text = finalText;
     }
 
-    else if(message.includes('how are you')) {
-        const finalText = "I am fine Xurshid tell me how can i help you";
+    else if(message.includes('how are you') || message.includes('what are you')) {
+        const finalText = `I am fine ${banner} tell me how can i help you`;
+        speech.text = finalText;
+    }
+    
+    else if(message.includes(`what's up`)) {
+        const finalText = `I'm fine thanks you`;
         speech.text = finalText;
     }
 
-    else if(message.includes('who are you')) {
-        const finalText = "I am Wora. Your voice assistant";
+    else if(message.includes('who are you') || message.includes('what are you') || message.includes('what') || message.includes('what wora')) {
+        const finalText = `I am Wora. Your voice assistant`;
         speech.text = finalText;
     }
 
     else if(message.includes('hi')) {
-        const finalText = "Hi Xurshidjon";
+        const finalText = `Hi ${banner}`;
         speech.text = finalText;
     }
 
     else if(message.includes('mother fuc you')) {
-        const finalText = "Ohhhh Nooooo";
-        speech.text = finalText;
-    }
-    
-    else if(message.includes("what's up")) {
-        const finalText = "I'm fine thanks you";
+        const finalText = `Ohhhh Nooooo`;
         speech.text = finalText;
     }
 
-    else if(message.includes("what language do you speak")) {
-        const finalText = "I currently only speak English and I ask you to do the same";
+    else if(message.includes(`what language do you speak`)) {
+        const finalText = `I currently only speak English and I ask you to do the same`;
         speech.text = finalText;
     }
 
-    else if(message.includes('name')) {
-        const finalText = "My name is Wora";
+    else if(message.includes('name') || message.includes('whats name') || message.includes('whats your name')) {
+        const finalText = `My name is Wora`;
         speech.text = finalText;
     }
 
-    else if(message.includes('who created you')) {
-        const finalText = "I was developed in 2022 by a programmer from Uzbekistan named Khurshidjon Juraev";
+    else if(message.includes('who created you') || message.includes('who is created you')) {
+        const finalText = `I was developed in 2022 by a programmer from Uzbekistan named Khurshid Juraev`;
         speech.text = finalText;
     }
 
     else if(message.includes('open google')) {
-        window.open("https://google.com", "_blank");
-        const finalText = "Opening Google";
+        window.open(`https://google.com`, `_blank`);
+        const finalText = `Opening Google`;
         speech.text = finalText;
     }
 
     else if(message.includes('open instagram')) {
-        window.open("https://instagram.com", "_blank");
-        const finalText = "Opening instagram";
+        window.open(`https://instagram.com`, `_blank`);
+        const finalText = `Opening instagram`;
         speech.text = finalText;
     }
 
     else if(message.includes('what is') || message.includes('who is') || message.includes('what are')) {
-        window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
-        const finalText = "This is what i found on internet regarding " + message;
+        window.open(`https://www.google.com/search?q=${message.replace(` `, `+`)}`, `_blank`);
+        const finalText = `This is what i found on internet regarding ` + message;
         speech.text = finalText;
     }
 
     else if(message.includes('wikipedia')) {
-        window.open(`https://en.wikipedia.org/wiki/${message.replace("wikipedia", "")}`, "_blank");
-        const finalText = "This is what i found on wikipedia regarding " + message;
+        window.open(`https://en.wikipedia.org/wiki/${message.replace(`wikipedia`, )}`, `_blank`)
+        const finalText = `This is what i found on wikipedia regarding ` + message;
         speech.text = finalText;
     }
 
     else if(message.includes('time')) {
-        const time = new Date().toLocaleString(undefined, {hour: "numeric", minute: "numeric"})
+        const time = new Date().toLocaleString(undefined, {hour: `numeric`, minute: `numeric`})
         const finalText = time;
         speech.text = finalText;
     }
 
     else if(message.includes('date')) {
-        const date = new Date().toLocaleString(undefined, {month: "short", day: "numeric"})
+        const date = new Date().toLocaleString(undefined, {month: `short`, day: `numeric`})
         const finalText = date;
         speech.text = finalText;
     }
 
     else if(message.includes('calculator')) {
         window.open('Calculator:///')
-        const finalText = "Opening Calculator";
+        const finalText = `Opening Calculator`;
+        speech.text = finalText;
+    }
+
+    else if(message.includes('paint')) {
+        window.open('Paint:///')
+        const finalText = `Opening Paint`;
+        speech.text = finalText;
+    }
+
+    else if(message.includes('telegram')) {
+        window.open('Telegram:///')
+        const finalText = `Opening Telegram`;
+        speech.text = finalText;
+    }
+
+    else if(message.includes('youtube')) {
+        window.open(`https://youtube.com`, `_blank`)
+        const finalText = `Opening You Tube`;
         speech.text = finalText;
     }
 
     else {
-        window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
-        const finalText = "I found some information for " + message + " on google";
+        window.open(`https://www.google.com/search?q=${message.replace(` `, `+`)}`, `_blank`);
+        const finalText = `I found some information for ` + message + ` on google`;
         speech.text = finalText;
     }
 

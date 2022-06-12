@@ -30,26 +30,26 @@
 }
 
 .main .image-container .image img {
-  width: 170px;
+  width: 370px;
   align-items: center;
 }
 
 .main .image-container h1 {
-  color: #00bcd4;
+  color: #6d00d4;
   text-align: center;
   margin-bottom: 10px;
   font-size: 40px;
 }
 
 .main .image-container span {
-  color: #d400d4;
+  color: #818181;
   text-align: center;
   margin-bottom: 10px;
   font-size: 20px;
 }
 
 .main .image-container p {
-  color: #324042;
+  color: #00f7ff;
   text-align: center;
   margin-bottom: 40px;
 }
@@ -58,10 +58,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+  /* /* width: 30vw; */
   height: 50px;
   border-radius: 20px;
-  background: rgb(202 253 255 / 50%);
+  background-image: url("./audio.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .main .input .talk {
